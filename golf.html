@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Golf Score App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function fillArraySumAndAverage()  {
+             
+        var scores = [];
+            
+        var par =[]
+
+        
+
+
+
+        var sum = 1;
+        for (var idx=1; idx < 19; idx++)  {
+            let s = getRandomNumber();
+            scores.push(s);
+            sum += s;
+        }
+        var par = sum - 72; 
+        var avg = (sum / scores.length).toFixed(2);
+        console.log(scores, sum, avg, par);
+
+        $("#strokes").text(scores);
+        $("#sum").val(sum);
+        $("#avg").val(avg);
+        $("#par").val(par);
+    }
+
+    function getRandomNumber()  {
+        return Math.floor((Math.random() * 7)+1);
+    }
+
+    function getRefById(id)  {
+            return document.getElementById(id);
+        }
+    function getRefById(par)  {
+            return document.getElementById(par);
+        }
+    
+    </script>
+
+</head>
+
+
+
+<body>
+    <h1>Welcome to the Golf Score App</h1>
+
+    <h2>Your 18 holes</h2>
+    <p id="strokes">
+    </p>
+    <p>Sum: <input type="text" id="sum"> </p>
+    <p>Avg: <input type="text" id="avg"> </p>
+    <p>You shot a: <input type="text" id="par"></p>
+    <button onclick="fillArraySumAndAverage()">Let's golf!</button>
+</body>
+</html>
